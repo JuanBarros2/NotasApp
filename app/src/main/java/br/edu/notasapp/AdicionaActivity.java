@@ -9,21 +9,28 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
+public class AdicionaActivity extends AppCompatActivity {
+
+    @BindView(R.id.materia_field)
+    public EditText campoMaterial;
+    @BindView(R.id.nota1_field)
+    public EditText nota1_field;
+    @BindView(R.id.nota2_field)
+    public EditText nota2_field;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+        setContentView(R.layout.activity_adiciona);
     }
 
     @OnClick(R.id.add_btn)
-    public void callAddActivity(Button btn){
-        Intent intent = new Intent(this, AdicionaActivity.class);
-        //Terá foco maior em aulas posteriores
-        startActivity(intent);
+    public void onBtnClick(Button btn){
     }
 
 

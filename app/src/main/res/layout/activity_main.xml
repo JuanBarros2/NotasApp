@@ -12,39 +12,12 @@
     android:paddingTop="16dp"
     tools:context="br.edu.notasapp.MainActivity">
 
-    <EditText
-        android:id="@+id/materia_field"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/materia"
-        android:inputType="textPersonName"
-        android:text="" />
-
-    <EditText
-        android:id="@+id/nota1_field"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="@string/nota1"
-        android:inputType="numberDecimal" />
-
-    <EditText
-        android:id="@+id/nota2_field"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="@string/nota2"
-        android:inputType="numberDecimal" />
 
     <Button
         android:id="@+id/add_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:onClick="onBtnClick"
-        android:text="Cadastrar" />
+        android:text="@string/register" />
 
 </LinearLayout>

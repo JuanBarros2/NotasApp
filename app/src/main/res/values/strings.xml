@@ -4,4 +4,5 @@
     <string name="materia">Matéria</string>
     <string name="nota1">Digite a primeira nota</string>
     <string name="nota2">Digite a segunda nota</string>
+    <string name="register">Cadastrar</string>
 </resources>
