@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">NotasApp</string>
     <string name="notas">Notas</string>
+    <string name="materia">Matéria</string>
+    <string name="nota1">Digite a primeira nota</string>
+    <string name="nota2">Digite a segunda nota</string>
 </resources>

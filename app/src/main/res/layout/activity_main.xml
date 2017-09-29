@@ -4,40 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="horizontal"
+    android:gravity="top|center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
     tools:context="br.edu.notasapp.MainActivity">
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="0dp"
+        android:id="@+id/materia_field"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
         android:ems="10"
-        android:hint="@string/notas"
-        android:layout_weight="0.7"
+        android:hint="@string/materia"
         android:inputType="textPersonName"
         android:text="" />
-    <!-- ID: referencia para linkar com activity
-        WIDTH: define e largura do componente
-        HEIGHT: define a altura do componente
-        EMS: quantidade de caracteres que serão mostrados
-        INPUTTYPE: tipo de entrada
-        TEXT: texto a ser exibido
-        HINT: texto exibido no campo que não é considerado
-        WEIGHT: define peso ao componente (NOTA: é preciso zerar
-        a componente que se queira ponderar. Nesse exemplo zeramos
-        o layout_width, pois estamos ponderando a largura
-    -->
-    <Button
-        android:id="@+id/button"
-        android:layout_weight="0.3"
-        android:layout_width="0dp"
+
+    <EditText
+        android:id="@+id/nota1_field"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="@string/nota1"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/nota2_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="@string/nota2"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/add_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:onClick="onBtnClick"
-        android:text="Button" />
+        android:text="Cadastrar" />
 
 </LinearLayout>
