@@ -1,6 +1,7 @@
 package br.edu.notasapp;
 
 import android.content.Intent;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,10 +29,16 @@ public class AdicionaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adiciona);
         ButterKnife.bind(this);
+        if(savedInstanceState != null){
+            Materia materia = (Materia) savedInstanceState.getSerializable("MATERIA");
+            campoMaterial.setText(materia.getNome());
+            nota1_field.setText(materia.getNota1().toString());
+            nota2_field.setText(materia.getNota2().toString());
+        }
     }
 
     @OnClick(R.id.add_btn)
-    public void onBtnClick(Button btn){
+    public void onBtnClick(Button btn) {
         String nome = campoMaterial.getText().toString();
         Double nota1 = Double.valueOf(nota1_field.getText().toString());
         Double nota2 = Double.valueOf(nota2_field.getText().toString());
@@ -51,7 +58,13 @@ public class AdicionaActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        String nome = campoMaterial.getText().toString();
+        Double nota1 = Double.valueOf(nota1_field.getText().toString());
+        Double nota2 = Double.valueOf(nota2_field.getText().toString());
 
-
-
+        outState.putSerializable("MATERIA", new Materia(nome, nota1, nota2));
+    }
 }
