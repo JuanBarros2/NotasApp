@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import br.edu.notasapp.domain.Materia;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -25,13 +26,32 @@ public class AdicionaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
         setContentView(R.layout.activity_adiciona);
+        ButterKnife.bind(this);
     }
 
     @OnClick(R.id.add_btn)
     public void onBtnClick(Button btn){
+        String nome = campoMaterial.getText().toString();
+        Double nota1 = Double.valueOf(nota1_field.getText().toString());
+        Double nota2 = Double.valueOf(nota2_field.getText().toString());
+
+        Bundle bundle = new Bundle();
+
+        bundle.putString("NOME", nome);
+        bundle.putDouble("NOTA1", nota1);
+        bundle.putDouble("NOTA2", nota2);
+        // OU
+        bundle.putSerializable("MATERIA", new Materia(nome, nota1, nota2));
+
+        Intent intent = new Intent();
+        intent.putExtras(bundle);
+        setResult(RESULT_OK, intent);
+        finish();
+
     }
+
+
 
 
 }
