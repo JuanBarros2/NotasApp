@@ -1,18 +1,15 @@
 package br.edu.notasapp;
 
 import android.content.Intent;
-import android.support.annotation.BinderThread;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutCompat;
-import android.util.Log;
-import android.view.LayoutInflater;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import br.edu.notasapp.domain.Materia;
 import butterknife.BindView;
@@ -24,7 +21,9 @@ public class MainActivity extends AppCompatActivity {
     private static final int CODIGO = 555;
 
     @BindView(R.id.content_list)
-    LinearLayout content;
+    RecyclerView content;
+
+    private MateriaAdapter adapter;
 
 
     @Override
@@ -32,6 +31,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        content.setLayoutManager(manager);
+        content.setHasFixedSize(true);
+
+        adapter = new MateriaAdapter(new ArrayList<Materia>(), new MateriaAdapter.OnItemSelected() {
+            @Override
+            public void onClick(Materia materia) {
+                adapter.removeMateria(materia);
+            }
+        });
+        content.setAdapter(adapter);
+
 
     }
 
@@ -50,16 +62,16 @@ public class MainActivity extends AppCompatActivity {
 
             Materia materia = (Materia) bundle.getSerializable("MATERIA");
             //Use uma constante pois é muito fácil errar o nome e isso compromete a legibilidade
-            addMateria(materia);
-
+            adapter.addMateria(materia);
         }
     }
 
-    public void addMateria(Materia materia) {
+
+    /*public void addMateria(Materia materia) {
         View view = getLayoutInflater().inflate(R.layout.materia_viewholder, content, false);
         ((TextView) view.findViewById(R.id.nome_text)).setText(materia.getNome());
         ((TextView) view.findViewById(R.id.media_text)).setText(materia.getNota1().toString());
 
         content.addView(view);
-    }
+    }*/
 }

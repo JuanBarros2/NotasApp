@@ -21,6 +21,10 @@ public class Materia implements Serializable{
         this.nota1 = nota1;
         this.nota2 = nota2;
     }
+    public Double calcMedia(){
+        Double media = getNota1() + getNota2();
+        return media / 2;
+    }
 
     public String getNome() {
         return nome;
